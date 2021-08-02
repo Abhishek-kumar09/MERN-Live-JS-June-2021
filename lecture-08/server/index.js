@@ -11,7 +11,8 @@ users.set("mohit", "Mohit Sharma");
 users.set("rav", "Ravi Saini");
 
 
-let handleroot = function(req, res){
+let handleroot = function(req, res) {
+    console.log(req);
     if(req.query.name && users.has(req.query.name)){
         res.send("Hello " + users.get(req.query.name));
     } else {
@@ -25,7 +26,7 @@ let handlebody = function(req, res){
     res.send("We got it");
 }
 
-app.post("/", handlebody);
+app.post("/", handleroot);
 
 app.listen(3000, function(err){
     if(!err){
